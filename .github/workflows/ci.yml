@@ -18,6 +18,12 @@ jobs:
         with:
           run: go test ./... -cover
 
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+
+      - name: Run gosec
+        run: gosec ./...
+
       - name: Force Success
         run: (exit 0)
   Style:
@@ -35,7 +41,7 @@ jobs:
         uses: actions/setup-go@v5
         with:
           run: test -z $(go fmt ./...)
-          
+
       - name: Run staticcheck
         run: staticcheck ./...
 
