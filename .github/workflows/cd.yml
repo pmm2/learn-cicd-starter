@@ -18,7 +18,7 @@ jobs:
         run: go test ./... -cover
 
       - name: build
-        run: ./scripts/build.sh
+        run: ./scripts/buildprod.sh
 
       - name: Force Success
         run: (exit 0)
