@@ -35,7 +35,9 @@ jobs:
         uses: actions/setup-go@v5
         with:
           run: test -z $(go fmt ./...)
-          run: staticcheck ./...
+          
+      - name: Run staticcheck
+        run: staticcheck ./...
 
       - name: Force Success
         run: (exit 0)
